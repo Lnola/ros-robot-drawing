@@ -51,6 +51,8 @@
 
 import rospy
 from turtlesim.srv import TeleportAbsolute, SetPen
+from std_srvs.srv import Empty
+
 
 length = 2
 middle = 5.5
@@ -73,7 +75,8 @@ seven_segment_array = [
 ]
 
 
-def reset(set_pen_service, teleport_service):
+def reset(reset_service, set_pen_service, teleport_service):
+    reset_service()
     set_pen_service(r=255, g=255, b=255, width=25, off=1)
     teleport_service(min_x, middle, 0)
 
@@ -116,16 +119,18 @@ def segment_teleport_7(set_pen_service, teleport_service, off):
 def teleport_turtle():
     rospy.init_node("teleport_node", anonymous=True)
 
-    rospy.wait_for_service("/turtle1/teleport_absolute")
+    rospy.wait_for_service('/reset')
     rospy.wait_for_service("/turtle1/set_pen")
+    rospy.wait_for_service("/turtle1/teleport_absolute")
 
     try:
+        reset_service = rospy.ServiceProxy('/reset', Empty)
         set_pen_service = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
         teleport_service = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
 
         number = 0
         
-        reset(set_pen_service, teleport_service)
+        reset(reset_service, set_pen_service, teleport_service)
 
         segment_teleport_1(set_pen_service, teleport_service, off=seven_segment_array[number][0])
         segment_teleport_2(set_pen_service, teleport_service, off=seven_segment_array[number][1])
