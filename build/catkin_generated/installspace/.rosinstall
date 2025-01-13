@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lnola/catkin_ws/install/setup.sh
