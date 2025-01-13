@@ -57,10 +57,10 @@ from std_srvs.srv import Empty
 
 length = 2
 middle = 5.5
-min_x = middle - length
-max_x = middle + length
-min_y = middle - length * 2
-max_y = middle + length * 2
+left = middle - length
+right = middle + length
+top = middle + length * 2
+bottom = middle - length * 2
 
 seven_segment_array = [
     [0, 0, 0, 0, 0, 0, 1],
@@ -79,42 +79,42 @@ seven_segment_array = [
 def reset(reset_service, set_pen_service, teleport_service):
     reset_service()
     set_pen_service(r=255, g=255, b=255, width=25, off=1)
-    teleport_service(min_x, middle, 0)
+    teleport_service(left, middle, 0)
 
 
 def segment_teleport_1(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(min_x, min_y, 0)
+    teleport_service(left, top, 0)
 
 
 def segment_teleport_2(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(max_x, min_y, 0)
+    teleport_service(right, top, 0)
 
 
 def segment_teleport_3(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(max_x, middle, 0)
+    teleport_service(right, middle, 0)
 
 
 def segment_teleport_4(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(max_x, max_y, 0)
+    teleport_service(right, bottom, 0)
 
 
 def segment_teleport_5(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(min_x, max_y, 0)
+    teleport_service(left, bottom, 0)
 
 
 def segment_teleport_6(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(min_x, middle, 0)
+    teleport_service(left, middle, 0)
 
 
 def segment_teleport_7(set_pen_service, teleport_service, off):
     set_pen_service(r=255, g=255, b=255, width=25, off=off)
-    teleport_service(max_x, middle, 0)
+    teleport_service(right, middle, 0)
 
 
 def teleport_turtle(digit):
