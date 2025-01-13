@@ -120,12 +120,12 @@ def segment_teleport_7(set_pen_service, teleport_service, off):
 def teleport_turtle(digit):
     rospy.init_node("teleport_node", anonymous=True)
 
-    rospy.wait_for_service('/reset')
+    rospy.wait_for_service("/reset")
     rospy.wait_for_service("/turtle1/set_pen")
     rospy.wait_for_service("/turtle1/teleport_absolute")
 
     try:
-        reset_service = rospy.ServiceProxy('/reset', Empty)
+        reset_service = rospy.ServiceProxy("/reset", Empty)
         set_pen_service = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
         teleport_service = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
         
