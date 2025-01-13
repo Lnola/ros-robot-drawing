@@ -54,7 +54,6 @@ import sys
 from turtlesim.srv import TeleportAbsolute, SetPen
 from std_srvs.srv import Empty
 
-
 length = 2
 middle = 5.5
 left = middle - length
@@ -128,7 +127,7 @@ def teleport_turtle(digit):
         reset_service = rospy.ServiceProxy("/reset", Empty)
         set_pen_service = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
         teleport_service = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
-        
+
         reset(reset_service, set_pen_service, teleport_service)
 
         segment_teleport_1(set_pen_service, teleport_service, off=seven_segment_array[digit][0])
