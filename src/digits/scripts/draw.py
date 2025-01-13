@@ -50,6 +50,7 @@
 
 
 import rospy
+import sys
 from turtlesim.srv import TeleportAbsolute, SetPen
 from std_srvs.srv import Empty
 
@@ -116,7 +117,7 @@ def segment_teleport_7(set_pen_service, teleport_service, off):
     teleport_service(max_x, middle, 0)
 
 
-def teleport_turtle():
+def teleport_turtle(digit):
     rospy.init_node("teleport_node", anonymous=True)
 
     rospy.wait_for_service('/reset')
@@ -127,18 +128,16 @@ def teleport_turtle():
         reset_service = rospy.ServiceProxy('/reset', Empty)
         set_pen_service = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
         teleport_service = rospy.ServiceProxy("/turtle1/teleport_absolute", TeleportAbsolute)
-
-        number = 0
         
         reset(reset_service, set_pen_service, teleport_service)
 
-        segment_teleport_1(set_pen_service, teleport_service, off=seven_segment_array[number][0])
-        segment_teleport_2(set_pen_service, teleport_service, off=seven_segment_array[number][1])
-        segment_teleport_3(set_pen_service, teleport_service, off=seven_segment_array[number][2])
-        segment_teleport_4(set_pen_service, teleport_service, off=seven_segment_array[number][3])
-        segment_teleport_5(set_pen_service, teleport_service, off=seven_segment_array[number][4])
-        segment_teleport_6(set_pen_service, teleport_service, off=seven_segment_array[number][5])
-        segment_teleport_7(set_pen_service, teleport_service, off=seven_segment_array[number][6])
+        segment_teleport_1(set_pen_service, teleport_service, off=seven_segment_array[digit][0])
+        segment_teleport_2(set_pen_service, teleport_service, off=seven_segment_array[digit][1])
+        segment_teleport_3(set_pen_service, teleport_service, off=seven_segment_array[digit][2])
+        segment_teleport_4(set_pen_service, teleport_service, off=seven_segment_array[digit][3])
+        segment_teleport_5(set_pen_service, teleport_service, off=seven_segment_array[digit][4])
+        segment_teleport_6(set_pen_service, teleport_service, off=seven_segment_array[digit][5])
+        segment_teleport_7(set_pen_service, teleport_service, off=seven_segment_array[digit][6])
 
         rospy.loginfo("Teleported turtle successfully!")
     except rospy.ServiceException as e:
@@ -147,6 +146,6 @@ def teleport_turtle():
 
 if __name__ == "__main__":
     try:
-        teleport_turtle()
+        teleport_turtle(int(sys.argv[1]))
     except rospy.ROSInterruptException:
         pass
