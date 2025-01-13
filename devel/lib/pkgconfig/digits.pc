@@ -1,0 +1,8 @@
+prefix=/home/lnola/catkin_ws/devel
+
+Name: digits
+Description: Description of digits
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

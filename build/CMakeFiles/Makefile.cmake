@@ -15,6 +15,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin/catkin_generated/version/package.cmake"
   "catkin_generated/installspace/_setup_util.py"
   "catkin_generated/order_packages.cmake"
+  "digits/catkin_generated/ordered_paths.cmake"
+  "digits/catkin_generated/package.cmake"
   "/home/lnola/catkin_ws/src/CMakeLists.txt"
   "/home/lnola/catkin_ws/src/beginner_tutorials/CMakeLists.txt"
   "/home/lnola/catkin_ws/src/beginner_tutorials/package.xml"
@@ -24,6 +26,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/lnola/catkin_ws/src/beginner_tutorials/scripts/move_turtle_get_pose.py"
   "/home/lnola/catkin_ws/src/beginner_tutorials/scripts/pylistener.py"
   "/home/lnola/catkin_ws/src/beginner_tutorials/scripts/pytalker.py"
+  "/home/lnola/catkin_ws/src/digits/CMakeLists.txt"
+  "/home/lnola/catkin_ws/src/digits/package.xml"
+  "/home/lnola/catkin_ws/src/digits/scripts/draw.py"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
@@ -187,6 +192,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "beginner_tutorials/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "digits/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

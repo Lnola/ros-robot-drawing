@@ -55,12 +55,14 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 # The main recursive "all" target.
 all: gtest/all
 all: beginner_tutorials/all
+all: digits/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: beginner_tutorials/preinstall
+preinstall: digits/preinstall
 
 .PHONY : preinstall
 
@@ -72,6 +74,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: beginner_tutorials/clean
+clean: digits/clean
 
 .PHONY : clean
 
@@ -109,6 +112,24 @@ beginner_tutorials/clean: beginner_tutorials/CMakeFiles/roscpp_generate_messages
 beginner_tutorials/clean: beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 .PHONY : beginner_tutorials/clean
+
+#=============================================================================
+# Directory level rules for directory digits
+
+# Recursive "all" directory target.
+digits/all:
+
+.PHONY : digits/all
+
+# Recursive "preinstall" directory target.
+digits/preinstall:
+
+.PHONY : digits/preinstall
+
+# Recursive "clean" directory target.
+digits/clean:
+
+.PHONY : digits/clean
 
 #=============================================================================
 # Directory level rules for directory gtest

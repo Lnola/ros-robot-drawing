@@ -3,10 +3,11 @@ import rospy
 from geometry_msgs.msg import Twist
 import sys
 
-def move_turtle(lin_vel,ang_vel):
-    rospy.init_node('move_turtle', anonymous=False)
 
-    pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10) 
+def move_turtle(lin_vel, ang_vel):
+    rospy.init_node("move_turtle", anonymous=False)
+
+    pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
     rate = rospy.Rate(10)
     vel = Twist()
     while not rospy.is_shutdown():
@@ -17,12 +18,13 @@ def move_turtle(lin_vel,ang_vel):
         vel.angular.y = 0
         vel.angular.z = ang_vel
 
-        rospy.loginfo("Linear Vel = %f: Angular Vel = %f",lin_vel,ang_vel)
+        rospy.loginfo("Linear Vel = %f: Angular Vel = %f", lin_vel, ang_vel)
         pub.publish(vel)
 
         rate.sleep()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     try:
         move_turtle(float(sys.argv[1]), float(sys.argv[2]))
 
