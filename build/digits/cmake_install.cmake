@@ -93,10 +93,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/digits" TYPE PROGRAM FILES "/home/lnola/catkin_ws/build/digits/catkin_generated/installspace/draw.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/digits" TYPE PROGRAM FILES "/home/lnola/catkin_ws/build/digits/catkin_generated/installspace/drawer.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/digits" TYPE PROGRAM FILES "/home/lnola/catkin_ws/build/digits/catkin_generated/installspace/drawer.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/digits" TYPE PROGRAM FILES "/home/lnola/catkin_ws/build/digits/catkin_generated/installspace/generator.py")
 endif()
 
