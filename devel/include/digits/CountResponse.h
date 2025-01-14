@@ -25,11 +25,11 @@ struct CountResponse_
 
   CountResponse_()
     : count(0)
-    , digit(0)  {
+    , timestamp()  {
     }
   CountResponse_(const ContainerAllocator& _alloc)
     : count(0)
-    , digit(0)  {
+    , timestamp()  {
   (void)_alloc;
     }
 
@@ -38,8 +38,8 @@ struct CountResponse_
    typedef int32_t _count_type;
   _count_type count;
 
-   typedef int32_t _digit_type;
-  _digit_type digit;
+   typedef ros::Time _timestamp_type;
+  _timestamp_type timestamp;
 
 
 
@@ -71,7 +71,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::digits::CountResponse_<ContainerAllocator1> & lhs, const ::digits::CountResponse_<ContainerAllocator2> & rhs)
 {
   return lhs.count == rhs.count &&
-    lhs.digit == rhs.digit;
+    lhs.timestamp == rhs.timestamp;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +128,12 @@ struct MD5Sum< ::digits::CountResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "08e2a726d1cb2f85c287fa3c5a12465e";
+    return "74eb533b32c09c7c3df3f24d5d8745d4";
   }
 
   static const char* value(const ::digits::CountResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x08e2a726d1cb2f85ULL;
-  static const uint64_t static_value2 = 0xc287fa3c5a12465eULL;
+  static const uint64_t static_value1 = 0x74eb533b32c09c7cULL;
+  static const uint64_t static_value2 = 0x3df3f24d5d8745d4ULL;
 };
 
 template<class ContainerAllocator>
@@ -153,7 +153,7 @@ struct Definition< ::digits::CountResponse_<ContainerAllocator> >
   static const char* value()
   {
     return "int32 count\n"
-"int32 digit\n"
+"time timestamp\n"
 ;
   }
 
@@ -173,7 +173,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.count);
-      stream.next(m.digit);
+      stream.next(m.timestamp);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -194,8 +194,8 @@ struct Printer< ::digits::CountResponse_<ContainerAllocator> >
   {
     s << indent << "count: ";
     Printer<int32_t>::stream(s, indent + "  ", v.count);
-    s << indent << "digit: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.digit);
+    s << indent << "timestamp: ";
+    Printer<ros::Time>::stream(s, indent + "  ", v.timestamp);
   }
 };
 

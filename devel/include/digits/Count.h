@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::digits::Count > {
   static const char* value()
   {
-    return "08e2a726d1cb2f85c287fa3c5a12465e";
+    return "74eb533b32c09c7c3df3f24d5d8745d4";
   }
 
   static const char* value(const ::digits::Count&) { return value(); }

@@ -99,16 +99,17 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import genpy
 
 class CountResponse(genpy.Message):
-  _md5sum = "08e2a726d1cb2f85c287fa3c5a12465e"
+  _md5sum = "74eb533b32c09c7c3df3f24d5d8745d4"
   _type = "digits/CountResponse"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 count
-int32 digit
+time timestamp
 """
-  __slots__ = ['count','digit']
-  _slot_types = ['int32','int32']
+  __slots__ = ['count','timestamp']
+  _slot_types = ['int32','time']
 
   def __init__(self, *args, **kwds):
     """
@@ -118,7 +119,7 @@ int32 digit
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       count,digit
+       count,timestamp
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -129,11 +130,11 @@ int32 digit
       # message fields cannot be None, assign default values for those that are
       if self.count is None:
         self.count = 0
-      if self.digit is None:
-        self.digit = 0
+      if self.timestamp is None:
+        self.timestamp = genpy.Time()
     else:
       self.count = 0
-      self.digit = 0
+      self.timestamp = genpy.Time()
 
   def _get_types(self):
     """
@@ -148,7 +149,7 @@ int32 digit
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.count, _x.digit))
+      buff.write(_get_struct_i2I().pack(_x.count, _x.timestamp.secs, _x.timestamp.nsecs))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -160,11 +161,14 @@ int32 digit
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.timestamp is None:
+        self.timestamp = genpy.Time()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.count, _x.digit,) = _get_struct_2i().unpack(str[start:end])
+      end += 12
+      (_x.count, _x.timestamp.secs, _x.timestamp.nsecs,) = _get_struct_i2I().unpack(str[start:end])
+      self.timestamp.canon()
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -178,7 +182,7 @@ int32 digit
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.count, _x.digit))
+      buff.write(_get_struct_i2I().pack(_x.count, _x.timestamp.secs, _x.timestamp.nsecs))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -191,11 +195,14 @@ int32 digit
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.timestamp is None:
+        self.timestamp = genpy.Time()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.count, _x.digit,) = _get_struct_2i().unpack(str[start:end])
+      end += 12
+      (_x.count, _x.timestamp.secs, _x.timestamp.nsecs,) = _get_struct_i2I().unpack(str[start:end])
+      self.timestamp.canon()
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -204,14 +211,14 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2i = None
-def _get_struct_2i():
-    global _struct_2i
-    if _struct_2i is None:
-        _struct_2i = struct.Struct("<2i")
-    return _struct_2i
+_struct_i2I = None
+def _get_struct_i2I():
+    global _struct_i2I
+    if _struct_i2I is None:
+        _struct_i2I = struct.Struct("<i2I")
+    return _struct_i2I
 class Count(object):
   _type          = 'digits/Count'
-  _md5sum = '08e2a726d1cb2f85c287fa3c5a12465e'
+  _md5sum = '74eb533b32c09c7c3df3f24d5d8745d4'
   _request_class  = CountRequest
   _response_class = CountResponse

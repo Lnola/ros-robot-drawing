@@ -3,8 +3,8 @@
 import rospy
 import random
 from digits.msg import Segments
+from digits.srv import Count
 from std_msgs.msg import Int32
-from std_srvs.srv import Empty
 
 SERVICE_CUSTOM_RESET = "/drawer/reset"
 TOPIC_SEGMENTS = "segments"
@@ -50,9 +50,9 @@ def draw_digit(digit):
         rospy.set_param(PARAM_CUSTOM_TEXT, high_contrast_color)
         rospy.loginfo(f"Setting new colors.")
 
-        reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Empty)
-        reset_service()
-        rospy.loginfo("Init custom reset of turtlesim.")
+        reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Count)
+        [count, timestamp] = reset_service()
+        rospy.loginfo(f"Reset couter {count} of turtlesim. Timestamp: {timestamp}")
 
         publisher = rospy.Publisher(TOPIC_SEGMENTS, Segments, queue_size=10)
         msg = Segments()

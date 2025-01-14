@@ -32,10 +32,10 @@
   "digits/CountRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Count-request>)))
   "Returns md5sum for a message object of type '<Count-request>"
-  "08e2a726d1cb2f85c287fa3c5a12465e")
+  "74eb533b32c09c7c3df3f24d5d8745d4")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Count-request)))
   "Returns md5sum for a message object of type 'Count-request"
-  "08e2a726d1cb2f85c287fa3c5a12465e")
+  "74eb533b32c09c7c3df3f24d5d8745d4")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Count-request>)))
   "Returns full string definition for message of type '<Count-request>"
   (cl:format cl:nil "~%~%"))
@@ -57,10 +57,10 @@
     :initarg :count
     :type cl:integer
     :initform 0)
-   (digit
-    :reader digit
-    :initarg :digit
-    :type cl:integer
+   (timestamp
+    :reader timestamp
+    :initarg :timestamp
+    :type cl:real
     :initform 0))
 )
 
@@ -77,10 +77,10 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader digits-srv:count-val is deprecated.  Use digits-srv:count instead.")
   (count m))
 
-(cl:ensure-generic-function 'digit-val :lambda-list '(m))
-(cl:defmethod digit-val ((m <Count-response>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader digits-srv:digit-val is deprecated.  Use digits-srv:digit instead.")
-  (digit m))
+(cl:ensure-generic-function 'timestamp-val :lambda-list '(m))
+(cl:defmethod timestamp-val ((m <Count-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader digits-srv:timestamp-val is deprecated.  Use digits-srv:timestamp instead.")
+  (timestamp m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Count-response>) ostream)
   "Serializes a message object of type '<Count-response>"
   (cl:let* ((signed (cl:slot-value msg 'count)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
@@ -89,12 +89,16 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
     )
-  (cl:let* ((signed (cl:slot-value msg 'digit)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
-    )
+  (cl:let ((__sec (cl:floor (cl:slot-value msg 'timestamp)))
+        (__nsec (cl:round (cl:* 1e9 (cl:- (cl:slot-value msg 'timestamp) (cl:floor (cl:slot-value msg 'timestamp)))))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __sec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __sec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __sec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __sec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 0) __nsec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) __nsec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) __nsec) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) __nsec) ostream))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Count-response>) istream)
   "Deserializes a message object of type '<Count-response>"
@@ -104,12 +108,16 @@
       (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
       (cl:setf (cl:slot-value msg 'count) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
-    (cl:let ((unsigned 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'digit) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
+    (cl:let ((__sec 0) (__nsec 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) __sec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __sec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __sec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __sec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 0) __nsec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) __nsec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) __nsec) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) __nsec) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'timestamp) (cl:+ (cl:coerce __sec 'cl:double-float) (cl:/ __nsec 1e9))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<Count-response>)))
@@ -120,26 +128,26 @@
   "digits/CountResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Count-response>)))
   "Returns md5sum for a message object of type '<Count-response>"
-  "08e2a726d1cb2f85c287fa3c5a12465e")
+  "74eb533b32c09c7c3df3f24d5d8745d4")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Count-response)))
   "Returns md5sum for a message object of type 'Count-response"
-  "08e2a726d1cb2f85c287fa3c5a12465e")
+  "74eb533b32c09c7c3df3f24d5d8745d4")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Count-response>)))
   "Returns full string definition for message of type '<Count-response>"
-  (cl:format cl:nil "int32 count~%int32 digit~%~%~%"))
+  (cl:format cl:nil "int32 count~%time timestamp~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Count-response)))
   "Returns full string definition for message of type 'Count-response"
-  (cl:format cl:nil "int32 count~%int32 digit~%~%~%"))
+  (cl:format cl:nil "int32 count~%time timestamp~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Count-response>))
   (cl:+ 0
      4
-     4
+     8
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Count-response>))
   "Converts a ROS message object to a list"
   (cl:list 'Count-response
     (cl:cons ':count (count msg))
-    (cl:cons ':digit (digit msg))
+    (cl:cons ':timestamp (timestamp msg))
 ))
 (cl:defmethod roslisp-msg-protocol:service-request-type ((msg (cl:eql 'Count)))
   'Count-request)

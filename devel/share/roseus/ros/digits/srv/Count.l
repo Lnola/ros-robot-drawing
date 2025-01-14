@@ -47,31 +47,31 @@
 
 (defclass digits::CountResponse
   :super ros::object
-  :slots (_count _digit ))
+  :slots (_count _timestamp ))
 
 (defmethod digits::CountResponse
   (:init
    (&key
     ((:count __count) 0)
-    ((:digit __digit) 0)
+    ((:timestamp __timestamp) (instance ros::time :init))
     )
    (send-super :init)
    (setq _count (round __count))
-   (setq _digit (round __digit))
+   (setq _timestamp __timestamp)
    self)
   (:count
    (&optional __count)
    (if __count (setq _count __count)) _count)
-  (:digit
-   (&optional __digit)
-   (if __digit (setq _digit __digit)) _digit)
+  (:timestamp
+   (&optional __timestamp)
+   (if __timestamp (setq _timestamp __timestamp)) _timestamp)
   (:serialization-length
    ()
    (+
     ;; int32 _count
     4
-    ;; int32 _digit
-    4
+    ;; time _timestamp
+    8
     ))
   (:serialize
    (&optional strm)
@@ -79,16 +79,16 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; int32 _count
        (write-long _count s)
-     ;; int32 _digit
-       (write-long _digit s)
+     ;; time _timestamp
+       (write-long (send _timestamp :sec) s) (write-long (send _timestamp :nsec) s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; int32 _count
      (setq _count (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; int32 _digit
-     (setq _digit (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; time _timestamp
+     (send _timestamp :sec (sys::peek buf ptr- :integer)) (incf ptr- 4)  (send _timestamp :nsec (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
@@ -97,7 +97,7 @@
   :super ros::object
   :slots ())
 
-(setf (get digits::Count :md5sum-) "08e2a726d1cb2f85c287fa3c5a12465e")
+(setf (get digits::Count :md5sum-) "74eb533b32c09c7c3df3f24d5d8745d4")
 (setf (get digits::Count :datatype-) "digits/Count")
 (setf (get digits::Count :request) digits::CountRequest)
 (setf (get digits::Count :response) digits::CountResponse)
@@ -105,24 +105,24 @@
 (defmethod digits::CountRequest
   (:response () (instance digits::CountResponse :init)))
 
-(setf (get digits::CountRequest :md5sum-) "08e2a726d1cb2f85c287fa3c5a12465e")
+(setf (get digits::CountRequest :md5sum-) "74eb533b32c09c7c3df3f24d5d8745d4")
 (setf (get digits::CountRequest :datatype-) "digits/CountRequest")
 (setf (get digits::CountRequest :definition-)
       "---
 int32 count
-int32 digit
+time timestamp
 ")
 
-(setf (get digits::CountResponse :md5sum-) "08e2a726d1cb2f85c287fa3c5a12465e")
+(setf (get digits::CountResponse :md5sum-) "74eb533b32c09c7c3df3f24d5d8745d4")
 (setf (get digits::CountResponse :datatype-) "digits/CountResponse")
 (setf (get digits::CountResponse :definition-)
       "---
 int32 count
-int32 digit
+time timestamp
 ")
 
 
 
-(provide :digits/Count "08e2a726d1cb2f85c287fa3c5a12465e")
+(provide :digits/Count "74eb533b32c09c7c3df3f24d5d8745d4")
 
 

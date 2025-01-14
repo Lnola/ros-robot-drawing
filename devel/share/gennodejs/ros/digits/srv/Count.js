@@ -74,7 +74,7 @@ class CountResponse {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.count = null;
-      this.digit = null;
+      this.timestamp = null;
     }
     else {
       if (initObj.hasOwnProperty('count')) {
@@ -83,11 +83,11 @@ class CountResponse {
       else {
         this.count = 0;
       }
-      if (initObj.hasOwnProperty('digit')) {
-        this.digit = initObj.digit
+      if (initObj.hasOwnProperty('timestamp')) {
+        this.timestamp = initObj.timestamp
       }
       else {
-        this.digit = 0;
+        this.timestamp = {secs: 0, nsecs: 0};
       }
     }
   }
@@ -96,8 +96,8 @@ class CountResponse {
     // Serializes a message object of type CountResponse
     // Serialize message field [count]
     bufferOffset = _serializer.int32(obj.count, buffer, bufferOffset);
-    // Serialize message field [digit]
-    bufferOffset = _serializer.int32(obj.digit, buffer, bufferOffset);
+    // Serialize message field [timestamp]
+    bufferOffset = _serializer.time(obj.timestamp, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -107,13 +107,13 @@ class CountResponse {
     let data = new CountResponse(null);
     // Deserialize message field [count]
     data.count = _deserializer.int32(buffer, bufferOffset);
-    // Deserialize message field [digit]
-    data.digit = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [timestamp]
+    data.timestamp = _deserializer.time(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 12;
   }
 
   static datatype() {
@@ -123,14 +123,14 @@ class CountResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '08e2a726d1cb2f85c287fa3c5a12465e';
+    return '74eb533b32c09c7c3df3f24d5d8745d4';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     int32 count
-    int32 digit
+    time timestamp
     
     `;
   }
@@ -148,11 +148,11 @@ class CountResponse {
       resolved.count = 0
     }
 
-    if (msg.digit !== undefined) {
-      resolved.digit = msg.digit;
+    if (msg.timestamp !== undefined) {
+      resolved.timestamp = msg.timestamp;
     }
     else {
-      resolved.digit = 0
+      resolved.timestamp = {secs: 0, nsecs: 0}
     }
 
     return resolved;
@@ -162,6 +162,6 @@ class CountResponse {
 module.exports = {
   Request: CountRequest,
   Response: CountResponse,
-  md5sum() { return '08e2a726d1cb2f85c287fa3c5a12465e'; },
+  md5sum() { return '74eb533b32c09c7c3df3f24d5d8745d4'; },
   datatype() { return 'digits/Count'; }
 };
