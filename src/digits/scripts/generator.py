@@ -17,6 +17,7 @@ def generate_digit():
     while not rospy.is_shutdown():
         random_digit = random.randint(0, 9)
         rospy.loginfo(f"Generated random digit: {random_digit}")
+        rospy.sleep(0.1)
         publisher.publish(random_digit)
         rate.sleep()
 
