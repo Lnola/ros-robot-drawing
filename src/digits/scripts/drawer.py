@@ -29,8 +29,11 @@ segment_map = {
     6: (right, middle),
 }
 
+count = 0
+
 
 def reset(_):
+    global count
     reset_service = rospy.ServiceProxy(SERVICE_RESET, Empty)
     set_pen_service = rospy.ServiceProxy(SERVICE_SET_PEN, SetPen)
     teleport_service = rospy.ServiceProxy(SERVICE_TELEPORT, TeleportAbsolute)
@@ -39,6 +42,8 @@ def reset(_):
     set_pen_service(r=255, g=255, b=255, width=25, off=1)
     teleport_service(left, middle, 0)
 
+    count += 1
+    rospy.loginfo(f"Count: {count}.")
     rospy.loginfo("Custom resetting turtlesim.")
     return {}
 
