@@ -206,7 +206,7 @@ include_directories(
 
 catkin_install_python(PROGRAMS
     scripts/controller.py
-    scripts/draw.py
     scripts/drawer.py
+    scripts/generator.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
