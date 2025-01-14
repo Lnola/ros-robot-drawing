@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/lnola/catkin_ws/devel/share/roseus/ros/digits/manifest.l"
   "/home/lnola/catkin_ws/devel/share/roseus/ros/digits/msg/Segments.l"
+  "/home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv/Count.l"
   "CMakeFiles/digits_generate_messages_eus"
 )
 

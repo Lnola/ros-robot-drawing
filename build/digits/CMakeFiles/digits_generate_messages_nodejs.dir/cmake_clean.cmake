@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/msg/Segments.js"
+  "/home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv/Count.js"
   "CMakeFiles/digits_generate_messages_nodejs"
 )
 

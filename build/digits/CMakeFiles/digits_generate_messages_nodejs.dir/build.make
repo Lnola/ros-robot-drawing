@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 include digits/CMakeFiles/digits_generate_messages_nodejs.dir/progress.make
 
 digits/CMakeFiles/digits_generate_messages_nodejs: /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/msg/Segments.js
+digits/CMakeFiles/digits_generate_messages_nodejs: /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv/Count.js
 
 
 /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/msg/Segments.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ digits/CMakeFiles/digits_generate_messages_nodejs: /home/lnola/catkin_ws/devel/s
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from digits/Segments.msg"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/lnola/catkin_ws/src/digits/msg/Segments.msg -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/msg
 
+/home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv/Count.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv/Count.js: /home/lnola/catkin_ws/src/digits/srv/Count.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from digits/Count.srv"
+	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/lnola/catkin_ws/src/digits/srv/Count.srv -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv
+
 digits_generate_messages_nodejs: digits/CMakeFiles/digits_generate_messages_nodejs
 digits_generate_messages_nodejs: /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/msg/Segments.js
+digits_generate_messages_nodejs: /home/lnola/catkin_ws/devel/share/gennodejs/ros/digits/srv/Count.js
 digits_generate_messages_nodejs: digits/CMakeFiles/digits_generate_messages_nodejs.dir/build.make
 
 .PHONY : digits_generate_messages_nodejs

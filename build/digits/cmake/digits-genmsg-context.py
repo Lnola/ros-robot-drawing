@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/lnola/catkin_ws/src/digits/msg/Segments.msg"
-services_str = ""
+services_str = "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
 pkg_name = "digits"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

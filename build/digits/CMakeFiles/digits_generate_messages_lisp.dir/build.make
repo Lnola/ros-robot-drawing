@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 include digits/CMakeFiles/digits_generate_messages_lisp.dir/progress.make
 
 digits/CMakeFiles/digits_generate_messages_lisp: /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/msg/Segments.lisp
+digits/CMakeFiles/digits_generate_messages_lisp: /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/srv/Count.lisp
 
 
 /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/msg/Segments.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
@@ -61,8 +62,14 @@ digits/CMakeFiles/digits_generate_messages_lisp: /home/lnola/catkin_ws/devel/sha
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from digits/Segments.msg"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/lnola/catkin_ws/src/digits/msg/Segments.msg -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/msg
 
+/home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/srv/Count.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/srv/Count.lisp: /home/lnola/catkin_ws/src/digits/srv/Count.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from digits/Count.srv"
+	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/lnola/catkin_ws/src/digits/srv/Count.srv -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/srv
+
 digits_generate_messages_lisp: digits/CMakeFiles/digits_generate_messages_lisp
 digits_generate_messages_lisp: /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/msg/Segments.lisp
+digits_generate_messages_lisp: /home/lnola/catkin_ws/devel/share/common-lisp/ros/digits/srv/Count.lisp
 digits_generate_messages_lisp: digits/CMakeFiles/digits_generate_messages_lisp.dir/build.make
 
 .PHONY : digits_generate_messages_lisp

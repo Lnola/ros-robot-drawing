@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "digits: 1 messages, 0 services")
+message(STATUS "digits: 1 messages, 1 services")
 
 set(MSG_I_FLAGS "-Idigits:/home/lnola/catkin_ws/src/digits/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_digits_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "digits" "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" ""
 )
 
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
+add_custom_target(_digits_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "digits" "/home/lnola/catkin_ws/src/digits/srv/Count.srv" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -36,6 +41,12 @@ _generate_msg_cpp(digits
 )
 
 ### Generating Services
+_generate_srv_cpp(digits
+  "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/digits
+)
 
 ### Generating Module File
 _generate_module_cpp(digits
@@ -50,6 +61,8 @@ add_dependencies(digits_generate_messages digits_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" NAME_WE)
+add_dependencies(digits_generate_messages_cpp _digits_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
 add_dependencies(digits_generate_messages_cpp _digits_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -69,6 +82,12 @@ _generate_msg_eus(digits
 )
 
 ### Generating Services
+_generate_srv_eus(digits
+  "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/digits
+)
 
 ### Generating Module File
 _generate_module_eus(digits
@@ -83,6 +102,8 @@ add_dependencies(digits_generate_messages digits_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" NAME_WE)
+add_dependencies(digits_generate_messages_eus _digits_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
 add_dependencies(digits_generate_messages_eus _digits_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -102,6 +123,12 @@ _generate_msg_lisp(digits
 )
 
 ### Generating Services
+_generate_srv_lisp(digits
+  "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/digits
+)
 
 ### Generating Module File
 _generate_module_lisp(digits
@@ -116,6 +143,8 @@ add_dependencies(digits_generate_messages digits_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" NAME_WE)
+add_dependencies(digits_generate_messages_lisp _digits_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
 add_dependencies(digits_generate_messages_lisp _digits_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -135,6 +164,12 @@ _generate_msg_nodejs(digits
 )
 
 ### Generating Services
+_generate_srv_nodejs(digits
+  "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/digits
+)
 
 ### Generating Module File
 _generate_module_nodejs(digits
@@ -149,6 +184,8 @@ add_dependencies(digits_generate_messages digits_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" NAME_WE)
+add_dependencies(digits_generate_messages_nodejs _digits_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
 add_dependencies(digits_generate_messages_nodejs _digits_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -168,6 +205,12 @@ _generate_msg_py(digits
 )
 
 ### Generating Services
+_generate_srv_py(digits
+  "/home/lnola/catkin_ws/src/digits/srv/Count.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/digits
+)
 
 ### Generating Module File
 _generate_module_py(digits
@@ -182,6 +225,8 @@ add_dependencies(digits_generate_messages digits_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/msg/Segments.msg" NAME_WE)
+add_dependencies(digits_generate_messages_py _digits_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/lnola/catkin_ws/src/digits/srv/Count.srv" NAME_WE)
 add_dependencies(digits_generate_messages_py _digits_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

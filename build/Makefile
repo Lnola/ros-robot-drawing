@@ -636,6 +636,19 @@ digits_gennodejs/fast:
 .PHONY : digits_gennodejs/fast
 
 #=============================================================================
+# Target rules for targets named _digits_generate_messages_check_deps_Count
+
+# Build rule for target.
+_digits_generate_messages_check_deps_Count: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _digits_generate_messages_check_deps_Count
+.PHONY : _digits_generate_messages_check_deps_Count
+
+# fast build rule for target.
+_digits_generate_messages_check_deps_Count/fast:
+	$(MAKE) -f digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/build.make digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/build
+.PHONY : _digits_generate_messages_check_deps_Count/fast
+
+#=============================================================================
 # Target rules for targets named digits_generate_messages_py
 
 # Build rule for target.
@@ -710,6 +723,7 @@ help:
 	@echo "... digits_genlisp"
 	@echo "... digits_generate_messages_eus"
 	@echo "... digits_gennodejs"
+	@echo "... _digits_generate_messages_check_deps_Count"
 	@echo "... digits_generate_messages_py"
 	@echo "... digits_genpy"
 .PHONY : help

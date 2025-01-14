@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "/home/lnola/catkin_ws/devel/include/digits/Count.h"
   "/home/lnola/catkin_ws/devel/include/digits/Segments.h"
   "CMakeFiles/digits_generate_messages_cpp"
 )

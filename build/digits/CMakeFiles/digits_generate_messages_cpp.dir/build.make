@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 include digits/CMakeFiles/digits_generate_messages_cpp.dir/progress.make
 
 digits/CMakeFiles/digits_generate_messages_cpp: /home/lnola/catkin_ws/devel/include/digits/Segments.h
+digits/CMakeFiles/digits_generate_messages_cpp: /home/lnola/catkin_ws/devel/include/digits/Count.h
 
 
 /home/lnola/catkin_ws/devel/include/digits/Segments.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,16 @@ digits/CMakeFiles/digits_generate_messages_cpp: /home/lnola/catkin_ws/devel/incl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from digits/Segments.msg"
 	cd /home/lnola/catkin_ws/src/digits && /home/lnola/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/lnola/catkin_ws/src/digits/msg/Segments.msg -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/include/digits -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/lnola/catkin_ws/devel/include/digits/Count.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/lnola/catkin_ws/devel/include/digits/Count.h: /home/lnola/catkin_ws/src/digits/srv/Count.srv
+/home/lnola/catkin_ws/devel/include/digits/Count.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/lnola/catkin_ws/devel/include/digits/Count.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from digits/Count.srv"
+	cd /home/lnola/catkin_ws/src/digits && /home/lnola/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/lnola/catkin_ws/src/digits/srv/Count.srv -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/include/digits -e /opt/ros/noetic/share/gencpp/cmake/..
+
 digits_generate_messages_cpp: digits/CMakeFiles/digits_generate_messages_cpp
 digits_generate_messages_cpp: /home/lnola/catkin_ws/devel/include/digits/Segments.h
+digits_generate_messages_cpp: /home/lnola/catkin_ws/devel/include/digits/Count.h
 digits_generate_messages_cpp: digits/CMakeFiles/digits_generate_messages_cpp.dir/build.make
 
 .PHONY : digits_generate_messages_cpp

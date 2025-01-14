@@ -54,7 +54,9 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 include digits/CMakeFiles/digits_generate_messages_py.dir/progress.make
 
 digits/CMakeFiles/digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/_Segments.py
+digits/CMakeFiles/digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py
 digits/CMakeFiles/digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/__init__.py
+digits/CMakeFiles/digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/__init__.py
 
 
 /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/_Segments.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -62,14 +64,28 @@ digits/CMakeFiles/digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG digits/Segments"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/lnola/catkin_ws/src/digits/msg/Segments.msg -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg
 
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py: /home/lnola/catkin_ws/src/digits/srv/Count.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV digits/Count"
+	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/lnola/catkin_ws/src/digits/srv/Count.srv -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv
+
 /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/__init__.py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/_Segments.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for digits"
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/__init__.py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for digits"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg --initpy
+
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/__init__.py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/_Segments.py
+/home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/__init__.py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for digits"
+	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv --initpy
 
 digits_generate_messages_py: digits/CMakeFiles/digits_generate_messages_py
 digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/_Segments.py
+digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/_Count.py
 digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/msg/__init__.py
+digits_generate_messages_py: /home/lnola/catkin_ws/devel/lib/python3/dist-packages/digits/srv/__init__.py
 digits_generate_messages_py: digits/CMakeFiles/digits_generate_messages_py.dir/build.make
 
 .PHONY : digits_generate_messages_py

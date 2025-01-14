@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/lnola/catkin_ws/build
 include digits/CMakeFiles/digits_generate_messages_eus.dir/progress.make
 
 digits/CMakeFiles/digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/msg/Segments.l
+digits/CMakeFiles/digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv/Count.l
 digits/CMakeFiles/digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/manifest.l
 
 
@@ -62,12 +63,18 @@ digits/CMakeFiles/digits_generate_messages_eus: /home/lnola/catkin_ws/devel/shar
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from digits/Segments.msg"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/lnola/catkin_ws/src/digits/msg/Segments.msg -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/roseus/ros/digits/msg
 
+/home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv/Count.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv/Count.l: /home/lnola/catkin_ws/src/digits/srv/Count.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from digits/Count.srv"
+	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/lnola/catkin_ws/src/digits/srv/Count.srv -Idigits:/home/lnola/catkin_ws/src/digits/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p digits -o /home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv
+
 /home/lnola/catkin_ws/devel/share/roseus/ros/digits/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for digits"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lnola/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for digits"
 	cd /home/lnola/catkin_ws/build/digits && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/lnola/catkin_ws/devel/share/roseus/ros/digits digits std_msgs
 
 digits_generate_messages_eus: digits/CMakeFiles/digits_generate_messages_eus
 digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/msg/Segments.l
+digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/srv/Count.l
 digits_generate_messages_eus: /home/lnola/catkin_ws/devel/share/roseus/ros/digits/manifest.l
 digits_generate_messages_eus: digits/CMakeFiles/digits_generate_messages_eus.dir/build.make
 

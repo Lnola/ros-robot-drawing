@@ -80,6 +80,17 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -91,17 +102,6 @@ install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -318,6 +318,21 @@ digits_gennodejs/fast:
 .PHONY : digits_gennodejs/fast
 
 # Convenience name for target.
+digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/rule:
+	cd /home/lnola/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/rule
+.PHONY : digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/rule
+
+# Convenience name for target.
+_digits_generate_messages_check_deps_Count: digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/rule
+
+.PHONY : _digits_generate_messages_check_deps_Count
+
+# fast build rule for target.
+_digits_generate_messages_check_deps_Count/fast:
+	cd /home/lnola/catkin_ws/build && $(MAKE) -f digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/build.make digits/CMakeFiles/_digits_generate_messages_check_deps_Count.dir/build
+.PHONY : _digits_generate_messages_check_deps_Count/fast
+
+# Convenience name for target.
 digits/CMakeFiles/digits_generate_messages_py.dir/rule:
 	cd /home/lnola/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 digits/CMakeFiles/digits_generate_messages_py.dir/rule
 .PHONY : digits/CMakeFiles/digits_generate_messages_py.dir/rule
@@ -355,9 +370,9 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
+	@echo "... test"
 	@echo "... install/strip"
 	@echo "... digits_generate_messages_nodejs"
-	@echo "... test"
 	@echo "... digits_generate_messages_cpp"
 	@echo "... digits_gencpp"
 	@echo "... digits_geneus"
@@ -370,6 +385,7 @@ help:
 	@echo "... digits_genlisp"
 	@echo "... digits_generate_messages_eus"
 	@echo "... digits_gennodejs"
+	@echo "... _digits_generate_messages_check_deps_Count"
 	@echo "... digits_generate_messages_py"
 	@echo "... digits_genpy"
 .PHONY : help
