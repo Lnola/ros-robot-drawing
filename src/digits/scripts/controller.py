@@ -27,7 +27,7 @@ segments_array = {
 }
 
 
-def get_high_contast_color(r, g, b):
+def get_high_contrast_color(r, g, b):
     luminance = 0.299 * r + 0.587 * g + 0.114 * b
     contrast_color = (0, 0, 0) if luminance > 128 else (255, 255, 255)
     return contrast_color
@@ -44,7 +44,7 @@ def draw_digit(digit):
             random.randint(0, 255),
             random.randint(0, 255),
         )
-        high_contrast_color = get_high_contast_color(r, g, b)
+        high_contrast_color = get_high_contrast_color(r, g, b)
         rospy.set_param(PARAM_BACKGROUND_R, r)
         rospy.set_param(PARAM_BACKGROUND_G, g)
         rospy.set_param(PARAM_BACKGROUND_B, b)
