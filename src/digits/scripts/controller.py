@@ -2,11 +2,15 @@
 
 import rospy
 import sys
+import random
 from digits.msg import Segments
 from std_srvs.srv import Empty
 
 SERVICE_CUSTOM_RESET = "/drawer/reset"
 TOPIC_SEGMENTS = "segments"
+PARAM_BACKGROUND_R = "/turtlesim/background_r"
+PARAM_BACKGROUND_G = "/turtlesim/background_g"
+PARAM_BACKGROUND_B = "/turtlesim/background_b"
 
 segments_array = {
     0: [0, 0, 0, 0, 0, 0, 1],
@@ -28,6 +32,11 @@ def draw_digit(digit):
     rospy.wait_for_service(SERVICE_CUSTOM_RESET)
 
     try:
+        rospy.set_param(PARAM_BACKGROUND_R, random.randint(0, 255))
+        rospy.set_param(PARAM_BACKGROUND_G, random.randint(0, 255))
+        rospy.set_param(PARAM_BACKGROUND_B, random.randint(0, 255))
+        rospy.loginfo(f"Setting new background color.")
+
         reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Empty)
         reset_service()
         rospy.loginfo("Init custom reset of turtlesim.")
