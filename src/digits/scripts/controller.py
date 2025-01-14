@@ -11,6 +11,7 @@ TOPIC_SEGMENTS = "segments"
 PARAM_BACKGROUND_R = "/turtlesim/background_r"
 PARAM_BACKGROUND_G = "/turtlesim/background_g"
 PARAM_BACKGROUND_B = "/turtlesim/background_b"
+PARAM_CUSTOM_TEXT = "/text_color"
 
 segments_array = {
     0: [0, 0, 0, 0, 0, 0, 1],
@@ -26,16 +27,29 @@ segments_array = {
 }
 
 
+def get_high_contast_color(r, g, b):
+    luminance = 0.299 * r + 0.587 * g + 0.114 * b
+    contrast_color = (0, 0, 0) if luminance > 128 else (255, 255, 255)
+    return contrast_color
+
+
 def draw_digit(digit):
     rospy.init_node("controller", anonymous=True)
 
     rospy.wait_for_service(SERVICE_CUSTOM_RESET)
 
     try:
-        rospy.set_param(PARAM_BACKGROUND_R, random.randint(0, 255))
-        rospy.set_param(PARAM_BACKGROUND_G, random.randint(0, 255))
-        rospy.set_param(PARAM_BACKGROUND_B, random.randint(0, 255))
-        rospy.loginfo(f"Setting new background color.")
+        r, g, b = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255),
+        )
+        high_contrast_color = get_high_contast_color(r, g, b)
+        rospy.set_param(PARAM_BACKGROUND_R, r)
+        rospy.set_param(PARAM_BACKGROUND_G, g)
+        rospy.set_param(PARAM_BACKGROUND_B, b)
+        rospy.set_param(PARAM_CUSTOM_TEXT, high_contrast_color)
+        rospy.loginfo(f"Setting new colors.")
 
         reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Empty)
         reset_service()

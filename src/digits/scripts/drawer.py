@@ -10,6 +10,7 @@ SERVICE_SET_PEN = "/turtle1/set_pen"
 SERVICE_TELEPORT = "/turtle1/teleport_absolute"
 SERVICE_CUSTOM_RESET = "/drawer/reset"
 TOPIC_SEGMENTS = "segments"
+PARAM_CUSTOM_TEXT = "/text_color"
 
 length = 2
 middle = 5.5
@@ -49,9 +50,11 @@ def draw_segments(msg):
     set_pen_service = rospy.ServiceProxy(SERVICE_SET_PEN, SetPen)
     teleport_service = rospy.ServiceProxy(SERVICE_TELEPORT, TeleportAbsolute)
 
+    [r, g, b] = rospy.get_param(PARAM_CUSTOM_TEXT, (255, 255, 255))
+    rospy.loginfo(f"{r} {g} {b} {type(r)}")
     segments = msg.segments
     for index, segment in enumerate(segments):
-        set_pen_service(r=255, g=255, b=255, width=25, off=segment)
+        set_pen_service(r=r, g=g, b=b, width=25, off=segment)
         teleport_service(*(segment_map[index]), 0)
 
 
