@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(digits_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/lnola/catkin_ws/devel/include " STREQUAL " ")
   set(digits_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/lnola/catkin_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(digits_EXPORTED_TARGETS "")
+set(digits_EXPORTED_TARGETS "digits_generate_messages_cpp;digits_generate_messages_eus;digits_generate_messages_lisp;digits_generate_messages_nodejs;digits_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${digits_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${digits_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "rospy;std_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(digits_EXPORTED_TARGETS ${${digits_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "digits-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${digits_DIR}/${extra})

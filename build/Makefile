@@ -505,6 +505,162 @@ rosgraph_msgs_generate_messages_py/fast:
 	$(MAKE) -f beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+#=============================================================================
+# Target rules for targets named digits_generate_messages_nodejs
+
+# Build rule for target.
+digits_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages_nodejs
+.PHONY : digits_generate_messages_nodejs
+
+# fast build rule for target.
+digits_generate_messages_nodejs/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages_nodejs.dir/build.make digits/CMakeFiles/digits_generate_messages_nodejs.dir/build
+.PHONY : digits_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named digits_generate_messages_cpp
+
+# Build rule for target.
+digits_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages_cpp
+.PHONY : digits_generate_messages_cpp
+
+# fast build rule for target.
+digits_generate_messages_cpp/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages_cpp.dir/build.make digits/CMakeFiles/digits_generate_messages_cpp.dir/build
+.PHONY : digits_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named digits_gencpp
+
+# Build rule for target.
+digits_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_gencpp
+.PHONY : digits_gencpp
+
+# fast build rule for target.
+digits_gencpp/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_gencpp.dir/build.make digits/CMakeFiles/digits_gencpp.dir/build
+.PHONY : digits_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named digits_geneus
+
+# Build rule for target.
+digits_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_geneus
+.PHONY : digits_geneus
+
+# fast build rule for target.
+digits_geneus/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_geneus.dir/build.make digits/CMakeFiles/digits_geneus.dir/build
+.PHONY : digits_geneus/fast
+
+#=============================================================================
+# Target rules for targets named _digits_generate_messages_check_deps_Segments
+
+# Build rule for target.
+_digits_generate_messages_check_deps_Segments: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _digits_generate_messages_check_deps_Segments
+.PHONY : _digits_generate_messages_check_deps_Segments
+
+# fast build rule for target.
+_digits_generate_messages_check_deps_Segments/fast:
+	$(MAKE) -f digits/CMakeFiles/_digits_generate_messages_check_deps_Segments.dir/build.make digits/CMakeFiles/_digits_generate_messages_check_deps_Segments.dir/build
+.PHONY : _digits_generate_messages_check_deps_Segments/fast
+
+#=============================================================================
+# Target rules for targets named digits_generate_messages_lisp
+
+# Build rule for target.
+digits_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages_lisp
+.PHONY : digits_generate_messages_lisp
+
+# fast build rule for target.
+digits_generate_messages_lisp/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages_lisp.dir/build.make digits/CMakeFiles/digits_generate_messages_lisp.dir/build
+.PHONY : digits_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named digits_generate_messages
+
+# Build rule for target.
+digits_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages
+.PHONY : digits_generate_messages
+
+# fast build rule for target.
+digits_generate_messages/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages.dir/build.make digits/CMakeFiles/digits_generate_messages.dir/build
+.PHONY : digits_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named digits_genlisp
+
+# Build rule for target.
+digits_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_genlisp
+.PHONY : digits_genlisp
+
+# fast build rule for target.
+digits_genlisp/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_genlisp.dir/build.make digits/CMakeFiles/digits_genlisp.dir/build
+.PHONY : digits_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named digits_generate_messages_eus
+
+# Build rule for target.
+digits_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages_eus
+.PHONY : digits_generate_messages_eus
+
+# fast build rule for target.
+digits_generate_messages_eus/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages_eus.dir/build.make digits/CMakeFiles/digits_generate_messages_eus.dir/build
+.PHONY : digits_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named digits_gennodejs
+
+# Build rule for target.
+digits_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_gennodejs
+.PHONY : digits_gennodejs
+
+# fast build rule for target.
+digits_gennodejs/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_gennodejs.dir/build.make digits/CMakeFiles/digits_gennodejs.dir/build
+.PHONY : digits_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named digits_generate_messages_py
+
+# Build rule for target.
+digits_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_generate_messages_py
+.PHONY : digits_generate_messages_py
+
+# fast build rule for target.
+digits_generate_messages_py/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_generate_messages_py.dir/build.make digits/CMakeFiles/digits_generate_messages_py.dir/build
+.PHONY : digits_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named digits_genpy
+
+# Build rule for target.
+digits_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 digits_genpy
+.PHONY : digits_genpy
+
+# fast build rule for target.
+digits_genpy/fast:
+	$(MAKE) -f digits/CMakeFiles/digits_genpy.dir/build.make digits/CMakeFiles/digits_genpy.dir/build
+.PHONY : digits_genpy/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -544,6 +700,18 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... digits_generate_messages_nodejs"
+	@echo "... digits_generate_messages_cpp"
+	@echo "... digits_gencpp"
+	@echo "... digits_geneus"
+	@echo "... _digits_generate_messages_check_deps_Segments"
+	@echo "... digits_generate_messages_lisp"
+	@echo "... digits_generate_messages"
+	@echo "... digits_genlisp"
+	@echo "... digits_generate_messages_eus"
+	@echo "... digits_gennodejs"
+	@echo "... digits_generate_messages_py"
+	@echo "... digits_genpy"
 .PHONY : help
 
 

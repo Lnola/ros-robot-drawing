@@ -3,6 +3,6 @@ prefix=/home/lnola/catkin_ws/devel
 Name: digits
 Description: Description of digits
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/lnola/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: rospy std_msgs
