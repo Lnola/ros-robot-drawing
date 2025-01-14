@@ -51,7 +51,6 @@ def draw_segments(msg):
     teleport_service = rospy.ServiceProxy(SERVICE_TELEPORT, TeleportAbsolute)
 
     [r, g, b] = rospy.get_param(PARAM_CUSTOM_TEXT, (255, 255, 255))
-    rospy.loginfo(f"{r} {g} {b} {type(r)}")
     segments = msg.segments
     for index, segment in enumerate(segments):
         set_pen_service(r=r, g=g, b=b, width=25, off=segment)
