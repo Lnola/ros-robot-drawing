@@ -13,6 +13,7 @@ def draw_digit(digit):
     try:
         reset_service = rospy.ServiceProxy("/reset", Empty)
         reset_service()
+        rospy.loginfo("Init custom reset of turtlesim.")
     except rospy.ServiceException as e:
         rospy.logerr(f"Service call failed: {e}")
 
