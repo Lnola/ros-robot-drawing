@@ -205,6 +205,8 @@ include_directories(
 # catkin_add_nosetests(test)
 
 catkin_install_python(PROGRAMS
+    scripts/controller.py
     scripts/draw.py
+    scripts/drawer.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
