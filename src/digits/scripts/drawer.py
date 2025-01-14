@@ -18,6 +18,16 @@ right = middle + length
 top = middle + length * 2
 bottom = middle - length * 2
 
+segment_map = {
+    0: (left, top),
+    1: (right, top),
+    2: (right, middle),
+    3: (right, bottom),
+    4: (left, bottom),
+    5: (left, middle),
+    6: (right, middle),
+}
+
 
 def reset(_):
     reset_service = rospy.ServiceProxy(SERVICE_RESET, Empty)
@@ -35,6 +45,14 @@ def reset(_):
 def draw_segments(msg):
     digit = msg.digit
     rospy.loginfo(f"Drawing digit {digit}.")
+
+    set_pen_service = rospy.ServiceProxy(SERVICE_SET_PEN, SetPen)
+    teleport_service = rospy.ServiceProxy(SERVICE_TELEPORT, TeleportAbsolute)
+
+    segments = msg.segments
+    for index, segment in enumerate(segments):
+        set_pen_service(r=255, g=255, b=255, width=25, off=segment)
+        teleport_service(*(segment_map[index]), 0)
 
 
 def draw():
