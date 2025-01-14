@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import rospy
+from std_msgs import msg
 from turtlesim.srv import TeleportAbsolute, SetPen
 from std_srvs.srv import Empty
 
@@ -8,6 +9,7 @@ SERVICE_RESET = "/reset"
 SERVICE_SET_PEN = "/turtle1/set_pen"
 SERVICE_TELEPORT = "/turtle1/teleport_absolute"
 SERVICE_CUSTOM_RESET = "/drawer/reset"
+TOPIC_SEGMENTS = "segments"
 
 length = 2
 middle = 5.5
@@ -30,6 +32,11 @@ def reset(_):
     return {}
 
 
+def draw_segments(data):
+    segments = data.data
+    rospy.loginfo(f"Drawing segments {segments}.")
+
+
 def draw():
     rospy.init_node("drawer", anonymous=True)
 
@@ -38,6 +45,7 @@ def draw():
     rospy.wait_for_service(SERVICE_TELEPORT)
 
     rospy.Service(SERVICE_CUSTOM_RESET, Empty, reset)
+    rospy.Subscriber(TOPIC_SEGMENTS, msg.String, draw_segments)
 
     rospy.spin()
 
