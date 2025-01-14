@@ -5,6 +5,7 @@ import random
 from digits.msg import Segments
 from digits.srv import Count
 from std_msgs.msg import Int32
+from datetime import datetime
 
 SERVICE_CUSTOM_RESET = "/drawer/reset"
 TOPIC_SEGMENTS = "segments"
@@ -34,6 +35,10 @@ def get_high_contrast_color(r, g, b):
     return contrast_color
 
 
+def humanize_timestamp(timestamp):
+    return datetime.fromtimestamp(timestamp.secs).strftime("%Y-%m-%d %H:%M:%S")
+
+
 def draw_digit(digit):
     rospy.wait_for_service(SERVICE_CUSTOM_RESET)
 
@@ -51,8 +56,9 @@ def draw_digit(digit):
         rospy.loginfo(f"Setting new colors.")
 
         reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Count)
-        [count, timestamp] = reset_service()
-        rospy.loginfo(f"Reset couter {count} of turtlesim. Timestamp: {timestamp}")
+        res = reset_service()
+        timestamp = humanize_timestamp(res.timestamp)
+        rospy.loginfo(f"Reset couter {res.count} of turtlesim at {timestamp}")
 
         publisher = rospy.Publisher(TOPIC_SEGMENTS, Segments, queue_size=10)
         msg = Segments()
