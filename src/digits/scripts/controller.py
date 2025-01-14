@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 
 import rospy
-import sys
 import random
 from digits.msg import Segments
+from std_msgs.msg import Int32
 from std_srvs.srv import Empty
 
 SERVICE_CUSTOM_RESET = "/drawer/reset"
 TOPIC_SEGMENTS = "segments"
+TOPIC_DIGIT = "digit"
 PARAM_BACKGROUND_R = "/turtlesim/background_r"
 PARAM_BACKGROUND_G = "/turtlesim/background_g"
 PARAM_BACKGROUND_B = "/turtlesim/background_b"
@@ -34,8 +35,6 @@ def get_high_contrast_color(r, g, b):
 
 
 def draw_digit(digit):
-    rospy.init_node("controller", anonymous=True)
-
     rospy.wait_for_service(SERVICE_CUSTOM_RESET)
 
     try:
@@ -67,8 +66,19 @@ def draw_digit(digit):
         rospy.logerr(f"Service call failed: {e}")
 
 
+def random_digit_callback(msg):
+    draw_digit(msg.data)
+
+
+def control():
+    rospy.init_node("controller", anonymous=True)
+
+    rospy.Subscriber(TOPIC_DIGIT, Int32, random_digit_callback)
+    rospy.spin()
+
+
 if __name__ == "__main__":
     try:
-        draw_digit(int(sys.argv[1]))
+        control()
     except rospy.ROSInterruptException:
         pass
