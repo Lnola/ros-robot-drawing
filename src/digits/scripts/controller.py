@@ -4,14 +4,16 @@ import rospy
 import sys
 from std_srvs.srv import Empty
 
+SERVICE_CUSTOM_RESET = "/drawer/reset"
+
 
 def draw_digit(digit):
     rospy.init_node("controller", anonymous=True)
 
-    rospy.wait_for_service("/drawer/reset")
+    rospy.wait_for_service(SERVICE_CUSTOM_RESET)
 
     try:
-        reset_service = rospy.ServiceProxy("/drawer/reset", Empty)
+        reset_service = rospy.ServiceProxy(SERVICE_CUSTOM_RESET, Empty)
         reset_service()
         rospy.loginfo("Init custom reset of turtlesim.")
     except rospy.ServiceException as e:

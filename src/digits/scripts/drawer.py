@@ -3,9 +3,12 @@
 import rospy
 from std_srvs.srv import Empty
 
+SERVICE_RESET = "/reset"
+SERVICE_CUSTOM_RESET = "/drawer/reset"
+
 
 def reset(_):
-    reset_service = rospy.ServiceProxy("/reset", Empty)
+    reset_service = rospy.ServiceProxy(SERVICE_RESET, Empty)
     reset_service()
     rospy.loginfo("Custom resetting turtlesim.")
     return {}
@@ -14,8 +17,9 @@ def reset(_):
 def draw():
     rospy.init_node("drawer", anonymous=True)
 
-    rospy.wait_for_service("/reset")
-    rospy.Service("/drawer/reset", Empty, reset)
+    rospy.wait_for_service(SERVICE_RESET)
+
+    rospy.Service(SERVICE_CUSTOM_RESET, Empty, reset)
 
     rospy.spin()
 
