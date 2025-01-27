@@ -1,2 +1,0 @@
-beginner_tutorials:digits
--DCATKIN_DEVEL_PREFIX=/home/lnola/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/lnola/catkin_ws/install -G Unix Makefiles
