@@ -1,7 +1,5 @@
 # ROS Robot Drawing
 
-## Overview
-
 This project enables a ROS-powered TurtleBot to perform autonomous drawing of numbers in a 7-segment display manner as well as having some movement basics training. It leverages ROS for communication, path planning, and execution of drawing motions using the lines left after the robot.
 
 ## Features
